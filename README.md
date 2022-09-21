@@ -1,4 +1,4 @@
-# MWallet
+# RingPay
 
 ## Getting started
 
