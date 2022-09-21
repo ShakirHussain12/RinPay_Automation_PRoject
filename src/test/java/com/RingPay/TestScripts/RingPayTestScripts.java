@@ -7,13 +7,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.utility.Utilities;
+
 import com.extent.ExtentReporter;
 import com.utility.Utilities;
 
 public class RingPayTestScripts {
 	
 	private com.business.RingPay.RingPayBusinessLogic ringPayBusiness;
-//Hello
 	@BeforeTest
 	public void Before() throws InterruptedException {
 		Utilities.relaunch = true;

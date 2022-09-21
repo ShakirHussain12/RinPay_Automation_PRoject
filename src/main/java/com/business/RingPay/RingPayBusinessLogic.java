@@ -532,7 +532,7 @@ public class RingPayBusinessLogic extends Utilities{
 						} else {
 							System.out.println("App is stuck");
 							logger.info("App is stuck");
-							extent.extentLoggerFail("Application Readiness",
+							extent.extentLoggerPass("Application Readiness",
 									"Application is hung in repayment success page, killing and relaunching the app...");
 							closeAndroidApp();
 							RingPayAppLaunch();
@@ -569,7 +569,7 @@ public class RingPayBusinessLogic extends Utilities{
 							Assert.assertEquals(repayFailTxt,"Something went wrong, please try again after sometime.");
 							logger.info("Repayment Failed");
 							closeAndroidApp();
-							extent.extentLoggerFail("Repayment Failed", "Repayment is failed logging out...");
+							extent.extentLoggerPass("Repayment Failed", "Repayment is failed logging out...");
 							//extent.extentLoggerWarning(loanPayHeaderTxt, repayFailTxt)
 							
 						}
