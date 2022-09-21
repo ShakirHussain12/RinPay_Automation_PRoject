@@ -543,7 +543,7 @@ public class RingPayBusinessLogic extends Utilities{
 							String availLimitHeaderTxt = getText(RingLoginPage.objAvailLimitHeader);
 							Assert.assertEquals(availLimitHeaderTxt, "Available Limit");
 							logger.info("Back to ring pay homepage");
-							extent.extentLoggerPass("RingPay homepage",
+							extent.extentLoggerWarning("RingPay homepage",
 									"Back to ring pay homepage from transaction details page");
 //					Aclick(RingLoginPage.objTopMenu,"Top left menu button");
 //					
@@ -569,7 +569,7 @@ public class RingPayBusinessLogic extends Utilities{
 							Assert.assertEquals(repayFailTxt,"Something went wrong, please try again after sometime.");
 							logger.info("Repayment Failed");
 							closeAndroidApp();
-							extent.extentLoggerPass("Repayment Failed", "Repayment is failed logging out...");
+							extent.extentLoggerWarning("Repayment Failed", "Repayment is failed logging out...");
 							//extent.extentLoggerWarning(loanPayHeaderTxt, repayFailTxt)
 							
 						}
