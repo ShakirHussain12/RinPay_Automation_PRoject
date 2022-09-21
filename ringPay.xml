@@ -27,8 +27,8 @@
    		<parameter name="MobileNumber" value="9731239214"/>
    		<parameter name="MerchantID" value="rpy.ipmerchant1234191702@icici"/>
    		<parameter name="exceedAmount" value="5000"/>
-   		<parameter name="withinLimitAmount" value="1"></parameter>
-   		<parameter name="CVV" value="123"></parameter>
+   		<parameter name="withinLimitAmount" value="1"/>
+   		<parameter name="CVV" value="123"/>
 		<classes>
 			<class name="com.RingPay.TestScripts.RingPayTestScripts" /> 
 		</classes>
