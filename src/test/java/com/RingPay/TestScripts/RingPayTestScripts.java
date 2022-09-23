@@ -20,7 +20,7 @@ public class RingPayTestScripts {
 		Utilities.relaunch = true;
 		ringPayBusiness = new com.business.RingPay.RingPayBusinessLogic("ring");
 	}
-	//Hello
+	//Hello Hello
 	@Test(priority = 0)
 	@Parameters({"userType"})
     public void ringPayAppLaunch() throws Exception {
