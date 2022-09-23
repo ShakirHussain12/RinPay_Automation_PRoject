@@ -34,7 +34,7 @@ public class RingPayTestScripts {
 		ringPayBusiness.ringPayLogin(mobileNumber);
 		ExtentReporter.jiraID = "PP-29";
 	}
-	
+	//Hello
 	@Test(priority = 2)
 	@Parameters({"MerchantID","exceedAmount","withinLimitAmount"})
 	public void ringMerchantPay(String merchantID, String exceedAmount, String withinLimitAmount) throws Exception{
@@ -42,17 +42,18 @@ public class RingPayTestScripts {
 		ExtentReporter.jiraID = "PP-30";
 	}
 	
-	@Test(priority = 3)
+	/*@Test(priority = 3)
 	public void ringTransactionDetails() throws Exception{
 		ringPayBusiness.ringPayTransactionDetails();;
 		ExtentReporter.jiraID = "PP-50";
-	}
-	/*@Test(priority = 3)
+	}*/
+	
+	@Test(priority = 3)
 	@Parameters({"CVV","MobileNumber"})
 	public void ringRepayment(String cvv,String reLoginMobNumber) throws Exception{
 		ringPayBusiness.ringRepayment(cvv,reLoginMobNumber);
 		ExtentReporter.jiraID = "PP-50";
-	}*/
+	}
 	
 	@Test(priority = 4)
 	public void ringLogout() throws Exception{
