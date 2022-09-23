@@ -122,6 +122,15 @@ public class RingLoginPage {
 	//Transaction number
 	public static By objTransacNumber = By.xpath("(//*[@class='android.view.ViewGroup' and ./parent::*[@class='android.view.ViewGroup' and ./parent::*[@class='android.widget.ScrollView' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.ViewGroup']]]]/*[@text])[9]");
 	
+	//Transaction button
+	public static By objTransacBtn = By.xpath("//*[@class='android.view.ViewGroup' and ./*[@text='Transactions'] and ./*[@class='android.view.ViewGroup']]");
+	
+	//Recent Transactions Header
+	public static By objRecentTransHeader = By.xpath("//*[@text='Recent Transactions']");
+	
+	//Most recent transaction
+	public static By objMostRecentTrans = By.xpath("(//*[@text='Si Creva Capital Pvt Ltd'])[1]");
+	
 	//Back button on transaction details page
 	public static By objBackBtn = By.xpath("//*[@class='android.view.ViewGroup' and ./parent::*[@class='android.view.ViewGroup'] and (./preceding-sibling::* | ./following-sibling::*)[@text='Transaction Details'] and ./*[@class='android.view.ViewGroup']]");
 	

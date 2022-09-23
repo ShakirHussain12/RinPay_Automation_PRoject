@@ -377,23 +377,6 @@ public class RingPayBusinessLogic extends Utilities{
 						logger.info("Current spends :: " + currentSpendsTxt);
 						extent.extentLoggerPass("Current spends", "Currents spends is :: " + currentSpendsTxt);
 						
-						/*Aclick(RingLoginPage.objRecentTrans,"Most Recent transaction");
-						explicitWaitVisibility(RingLoginPage.objTransacDetailHeader,10);
-						String transacDetailsTxt = getText(RingLoginPage.objTransacDetailHeader);
-						Assert.assertEquals(transacDetailsTxt, "Transaction Details");
-						logger.info("Traversing to Transaction details");
-						extent.extentLoggerPass("Transaction Details", "Traversing to Transaction details");
-						
-						String transacNoTxt = getText(RingLoginPage.objTransacNumber);
-						logger.info("Transaction Number :: " + transacNoTxt);
-						extent.extentLoggerPass("Transaction Number", "Transaction Number :: " + transacNoTxt);
-						
-						waitTime(3000);
-						Aclick(RingLoginPage.objBackBtn,"Back button in transaction details page");
-						explicitWaitVisibility(RingLoginPage.objAvailLimitHeader,10);
-						Assert.assertEquals(availLimitHeaderTxt,"Available Limit");
-						logger.info("Back to ring pay homepage");
-						extent.extentLoggerPass("RingPay homepage", "Back to ring pay homepage from transaction details page");*/
 					}
 					
 					else {
@@ -443,6 +426,47 @@ public class RingPayBusinessLogic extends Utilities{
 				extent.extentLoggerFail("Available limit header", "Available limit header is not Displayed");
 			}
 		}
+	}
+	
+	/**
+	 * Business method for RingPay Transaction Details capturing
+	 * 
+	 */
+	
+	public void ringPayTransactionDetails() throws Exception{
+		extent.HeaderChildNode("RingPay Transaction Details");
+		
+		explicitWaitVisibility(RingLoginPage.objTransacBtn,10);
+		Aclick(RingLoginPage.objTransacBtn,"Transaction Button");
+		waitTime(3000);
+		explicitWaitVisibility(RingLoginPage.objRecentTransHeader,10);
+		waitTime(3000);
+		String recentTransTxt = getText(RingLoginPage.objRecentTransHeader);
+		Assert.assertEquals(recentTransTxt, "Recent Transactions");
+		logger.info("Recent Transaction Page is displayed");
+		extent.extentLoggerPass("Recent Transactions", "Recent Transaction Page is displayed");
+		
+		explicitWaitVisibility(RingLoginPage.objMostRecentTrans,10);
+		Aclick(RingLoginPage.objMostRecentTrans,"Most recent payment transaction");
+		
+		explicitWaitVisibility(RingLoginPage.objTransacDetailHeader,10);
+		String transacDetailsTxt = getText(RingLoginPage.objTransacDetailHeader);
+		Assert.assertEquals(transacDetailsTxt,"Transaction Details");
+		logger.info("User is redirected to Transaction Details page");
+		extent.extentLoggerPass("Transactions Details Page", "User is redirected to Transaction Details page");
+		
+		String transacNumber = getText(RingLoginPage.objTransacNumber);
+		String payee = getText(RingLoginPage.objMostRecentTrans);
+		logger.info("Most recent transaction number to payee " + payee + " is :: " + transacNumber);
+		extent.extentLoggerPass("Transaction Number", "Most recent transaction number to payee " + payee + " is :: " + transacNumber);
+		
+		Aclick(RingLoginPage.objBackBtn,"Transaction Details Back Button");
+		
+		explicitWaitVisibility(RingLoginPage.objAvailLimitHeader,10);
+		String availLimitHeaderTxt = getText(RingLoginPage.objAvailLimitHeader);
+		Assert.assertEquals(availLimitHeaderTxt,"Available Limit");
+		logger.info("Back to ring pay homepage");
+		extent.extentLoggerPass("RingPay homepage", "Back to ring pay homepage from Payment confirmation page");	
 	}
 	
 	/**
@@ -532,7 +556,7 @@ public class RingPayBusinessLogic extends Utilities{
 						} else {
 							System.out.println("App is stuck");
 							logger.info("App is stuck");
-							extent.extentLoggerPass("Application Readiness",
+							extent.extentLoggerWarning("Application Readiness",
 									"Application is hung in repayment success page, killing and relaunching the app...");
 							closeAndroidApp();
 							RingPayAppLaunch();
@@ -543,7 +567,7 @@ public class RingPayBusinessLogic extends Utilities{
 							String availLimitHeaderTxt = getText(RingLoginPage.objAvailLimitHeader);
 							Assert.assertEquals(availLimitHeaderTxt, "Available Limit");
 							logger.info("Back to ring pay homepage");
-							extent.extentLoggerWarning("RingPay homepage",
+							extent.extentLoggerPass("RingPay homepage",
 									"Back to ring pay homepage from transaction details page");
 //					Aclick(RingLoginPage.objTopMenu,"Top left menu button");
 //					
@@ -552,50 +576,28 @@ public class RingPayBusinessLogic extends Utilities{
 
 						}
 						}
-						
-						else {
-							waitTime(5000);
-							logger.info("User is filling card details again");
-							explicitWaitVisibility(RingLoginPage.objRepayFailCardNo,10);
-							type(RingLoginPage.objRepayFailCardNo,"4111111111111111","Card Number");
-							type(RingLoginPage.objRepayFailCardExpiry,"10/25","Card Expiry");
-							type(RingLoginPage.objRepayFailHolderName,"shakir","Card holder's name");
-							type(RingLoginPage.objRepayFailCVV,"123","Card CVV");
-							
-							Aclick(RingLoginPage.objPayFooterBtn,"Repayment footer button");
-							
-							explicitWaitVisibility(RingLoginPage.objRepayFailPopup,15);
-							String repayFailTxt = getText(RingLoginPage.objRepayFailPopup);
-							Assert.assertEquals(repayFailTxt,"Something went wrong, please try again after sometime.");
-							logger.info("Repayment Failed");
-							closeAndroidApp();
-							extent.extentLoggerWarning("Repayment Failed", "Repayment is failed logging out...");
-							//extent.extentLoggerWarning(loanPayHeaderTxt, repayFailTxt)
-							
-						}
 					}
-				
+					else {
+						waitTime(5000);
+						String msgOtp = fetchOtp();
+						System.out.println(msgOtp);
+						
+						explicitWaitVisibility(RingLoginPage.objOtpTextField,10);
+						type(RingLoginPage.objOtpTextField,msgOtp,"OTP Text field");
+						
+						explicitWaitVisibility(RingLoginPage.objVerifyBtn,10);
+						Aclick(RingLoginPage.objVerifyBtn,"OTP Verify Button");
+						
+						explicitWaitVisibility(RingLoginPage.objSavedCardsHeader,10);
+						String cardHeaderTxt = getText(RingLoginPage.objSavedCardsHeader);
+						Assert.assertEquals(cardHeaderTxt,"YOUR SAVED CARDS");
+						logger.info("User is redirected to SAVED Cards page");
+						extent.extentLoggerPass("Saved cards page","User is redirected to SAVED Cards page");
+					}
+						
+					}
 				else {
 					waitTime(5000);
-					String msgOtp = fetchOtp();
-					System.out.println(msgOtp);
-					
-					explicitWaitVisibility(RingLoginPage.objOtpTextField,10);
-					type(RingLoginPage.objOtpTextField,msgOtp,"OTP Text field");
-					
-					explicitWaitVisibility(RingLoginPage.objVerifyBtn,10);
-					Aclick(RingLoginPage.objVerifyBtn,"OTP Verify Button");
-					
-					explicitWaitVisibility(RingLoginPage.objSavedCardsHeader,10);
-					String cardHeaderTxt = getText(RingLoginPage.objSavedCardsHeader);
-					Assert.assertEquals(cardHeaderTxt,"YOUR SAVED CARDS");
-					logger.info("User is redirected to SAVED Cards page");
-					extent.extentLoggerPass("Saved cards page","User is redirected to SAVED Cards page");
-				}
-				
-				}
-				
-				/*else {
 					logger.info("User is filling card details again");
 					explicitWaitVisibility(RingLoginPage.objRepayFailCardNo,10);
 					type(RingLoginPage.objRepayFailCardNo,"4111111111111111","Card Number");
@@ -610,9 +612,12 @@ public class RingPayBusinessLogic extends Utilities{
 					Assert.assertEquals(repayFailTxt,"Something went wrong, please try again after sometime.");
 					logger.info("Repayment Failed");
 					closeAndroidApp();
-					extent.extentLoggerFail("Repayment Failed", "Repayment is failed logging out...");
+					extent.extentLoggerWarning("Repayment Failed", "Repayment is failed logging out...");
 					//extent.extentLoggerWarning(loanPayHeaderTxt, repayFailTxt)
-				}*/
+					
+				}
+				
+				
 			}
 		
 				
