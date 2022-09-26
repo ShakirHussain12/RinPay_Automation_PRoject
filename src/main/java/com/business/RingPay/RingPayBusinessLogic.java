@@ -83,6 +83,7 @@ public class RingPayBusinessLogic extends Utilities{
 	}
 
 	public void TearDown() {
+		logger.info("App tear Down");
 		getDriver().quit();
 	}
 	
@@ -667,8 +668,12 @@ public class RingPayBusinessLogic extends Utilities{
 		logger.info("User is successfully logged out");
 		extent.extentLoggerPass("Logout confirmation", "User is successfully logged out");
 		
-		logger.info("App tear down");
 	}
+	
+	/**
+	 * Business method for RingPay OTP API positive scenario
+	 * 
+	 */
 	
 	public void valid_otp_200(String url) throws Exception {
 		extent.HeaderChildNode("OTP API - Positive");
@@ -677,11 +682,15 @@ public class RingPayBusinessLogic extends Utilities{
         ValidatableResponse response = RingPayAPI(data , url);
 
         //Status Code Validation
+        logger.info("Status Code Validation for OTP API - Positive Scenario...");
         Assert.assertEquals(response.extract().statusCode(), 200);
+        extent.extentLoggerPass("Status Code Validation", "OTP API Status Code Validation for positive scenario is successful");
         String otpStatus = String.valueOf(response.extract().statusCode());
-        extent.extentLogger("OTP API Status Code", "Repsonse status code is: " + otpStatus);
+        logger.info("OTP API response status code Validation is Successful");
+        extent.extentLoggerPass("OTP API Status Code", "Repsonse status code is: " + otpStatus);
 
         //Body Validation
+        logger.info("Response Body Validation for OTP API - Postive Scenario...");
         assertNotNull("'request_id' is not null", response.extract().body().jsonPath().get("request_id"));
         String requestId = response.extract().body().jsonPath().get("request_id");
         extent.extentLogger("Request ID", "Request ID from response body: " + requestId);
@@ -689,21 +698,35 @@ public class RingPayBusinessLogic extends Utilities{
         assertNotNull(response.extract().body().jsonPath().get("response_code"));
         Assert.assertEquals(response.extract().body().jsonPath().get("message"), "Success");
         Assert.assertTrue(response.extract().body().jsonPath().get("data.user_exists"));
+        logger.info("Response Body Validation for OTP API positive scenario is successful");
+        extent.extentLoggerPass("Body Validation", "Response Body Validation for positive scenario is successful");
 
         //Schema Validation
-        //assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("otp_200_schema.json"));
+        logger.info("Schema Validation for OTP API - Positive Scenario...");
+        assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("otp_200_schema.json"));
+        logger.info("Schema Validation for positive scenario is successful");
+        extent.extentLoggerPass("Schema Validation","Schema Validation for positive scenario is successful");
     }
 
+	/**
+	 * Business method for RingPay AUTH API positive scenario
+	 * 
+	 */
+	
     public void valid_auth_200(String url) throws Exception {
     	extent.HeaderChildNode("AUTH API - Positive");
     	
         Object[][] data = dataProvider.RingPayAPIData("auth_200");
         ValidatableResponse response = RingPayAPI(data, url);
 
+        logger.info("Status Code Validation for AUTH API - Positive Scenario...");
         Assert.assertEquals(response.extract().statusCode(), 200);
+        extent.extentLoggerPass("Status Code Validation", "AUTH API Status Code Validation for positive scenario is successful");
         String authStatus = String.valueOf(response.extract().statusCode());
-        extent.extentLogger("AUTH API Status Code", "Repsonse status code is: " +authStatus);
+        logger.info("AUTH API response status code Validation is Successful");
+        extent.extentLoggerPass("AUTH API Status Code", "Repsonse status code is: " +authStatus);
 
+        logger.info("Response Body Validation for AUTH API - Postive Scenario...");
         assertNotNull("'request_id' is not null", response.extract().body().jsonPath().get("request_id"));
         String requestId = response.extract().body().jsonPath().get("request_id");
         extent.extentLogger("Request ID", "Request ID from response body: " + requestId);
@@ -714,11 +737,21 @@ public class RingPayBusinessLogic extends Utilities{
         String userToken = response.extract().body().jsonPath().get("data.user_token");
         extent.extentLogger("User Token", "User token from response body: " + userToken);
         assertNotNull(response.extract().body().jsonPath().get("data.encrypted_user_reference_number"));
+        logger.info("Response Body Validation for AUTH API positive scenario is successful");
+        extent.extentLoggerPass("Body Validation", "Response Body Validation for positive scenario is successful");
 
         //Schema Validation
-        //assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("auth_200_schema.json"));
+        logger.info("Schema Validation for AUTH API - Positive Scenario...");
+        assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("auth_200_schema.json"));
+        logger.info("Schema Validation for positive scenario is successful");
+        extent.extentLoggerPass("Schema Validation","Schema Validation for positive scenario is successful");
     }
 
+    /**
+	 * Business method for RingPay AUTH API Negative scenario
+	 * 
+	 */
+    
     public void invalid_auth_400(String url) throws IOException {
     	extent.HeaderChildNode("AUTH API - Negative");
     	
@@ -726,42 +759,63 @@ public class RingPayBusinessLogic extends Utilities{
         ValidatableResponse response = RingPayAPI(data, url);
 
         //Status Code Validation
+        logger.info("Status Code Validation for AUTH API - Negative Scenario...");
         Assert.assertEquals(response.extract().statusCode(), 400);
+        extent.extentLoggerPass("Status Code Validation", "AUTH API Status Code Validation for negative scenario is successful");
         String authStatus = String.valueOf(response.extract().statusCode());
-        extent.extentLogger("auth API Status Code", "Repsonse status code is: " +authStatus);
+        logger.info("AUTH API response status code Validation is Successful");
+        extent.extentLoggerPass("AUTH API Status Code", "Repsonse status code is: " +authStatus);
 
         //Body Validation
+        logger.info("Response Body Validation for AUTH API - Negative Scenario...");
         assertNotNull("'request_id' is not null", response.extract().body().jsonPath().get("request_id"));
         Assert.assertFalse(response.extract().body().jsonPath().get("success"));
         assertNotNull(response.extract().body().jsonPath().get("response_code"));
         assertNotNull(response.extract().body().jsonPath().get("message"));
         String message = response.extract().body().jsonPath().get("message");
         extent.extentLogger("Body Message", "Message from response body is: " + message);
+        logger.info("Response Body Validation for AUTH API negative scenario is successful");
+        extent.extentLoggerPass("Body Validation", "Response Body Validation for negative scenario is successful");
 
         //Schema Validation
-        //assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("auth_400_schema.json"));
+        logger.info("Schema Validation for AUTH API - Negative Scenario...");
+        assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("auth_400_schema.json"));
+        logger.info("Schema Validation for negative scenario is successful");
+        extent.extentLoggerPass("Schema Validation","Schema Validation for positive scenario is successful");
     }
-
+    
+    /**
+	 * Business method for RingPay OTP API negative scenario
+	 * 
+	 */
     public void invalid_otp_400(String url) throws Exception {
     	extent.HeaderChildNode("OTP  API - Negative");
     	
         Object[][] data = dataProvider.RingPayAPIData("otp_400");
         ValidatableResponse response = RingPayAPI(data, url);
 
+        logger.info("Status Code Validation for OTP API - Negative Scenario...");
         Assert.assertEquals(response.extract().statusCode(), 400);
         String otpStatus = String.valueOf(response.extract().statusCode());
-        extent.extentLogger("OTP API Status Code", "Repsonse status code is: " +otpStatus);
+        logger.info("OTP API response status code Validation is Successful");
+        extent.extentLoggerPass("OTP API Status Code", "Repsonse status code is: " + otpStatus);
 
+        logger.info("Response Body Validation for OTP API - Negative Scenario...");
         assertNotNull("'request_id' is not null", response.extract().body().jsonPath().get("request_id"));
         Assert.assertFalse(response.extract().body().jsonPath().get("success"));
         assertNotNull(response.extract().body().jsonPath().get("response_code"));
         assertNotNull(response.extract().body().jsonPath().get("message"));
         String message = response.extract().body().jsonPath().get("message");
         extent.extentLogger("Body Message", "Message from response body is: " + message);
+        logger.info("Response Body Validation for OTP API Negative scenario is successful");
+        extent.extentLoggerPass("Body Validation", "Response Body Validation for Negative scenario is successful");
 
 
         //Schema Validation
-        //assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("otp_400_schema.json"));
+        logger.info("Schema Validation for OTP API - Negative Scenario...");
+        assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchemaInClasspath("otp_400_schema.json"));
+        logger.info("Schema Validation for negative scenario is successful");
+        extent.extentLoggerPass("Schema Validation","Schema Validation for negative scenario is successful");
     }
 
 }

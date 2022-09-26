@@ -108,7 +108,7 @@ public class RingLoginPage {
 	public static By objSuccessMsg = By.xpath("//*[@text='2 was successfully transferred using your']");
 	
 	//Available limit
-	public static By objCurrentSpends = By.xpath("((//*[@class='android.view.ViewGroup' and ./parent::*[@class='android.widget.ScrollView' and ./parent::*[./parent::*[@class='android.view.ViewGroup' and ./parent::*[@class='android.widget.ScrollView']]]]]/*/*[@class='android.view.ViewGroup' and ./parent::*[@class='android.view.ViewGroup']])[1]/*[@text])[2]");
+	public static By objCurrentSpends = By.xpath("//*[@text='Current Spends']/following-sibling::android.widget.TextView");
 	
 	//Goto homepage button
 	public static By objHomePageBtn = By.xpath("//*[@text='Go to Homepage']");

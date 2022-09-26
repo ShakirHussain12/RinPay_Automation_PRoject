@@ -20,16 +20,8 @@
       <class name="com.RingPay.TestScripts.RingPayTestScripts">
         <methods>
           <include name="Before"/>
-          <include name="ringAuthApi_Negative"/>
-          <include name="ringMerchantPay"/>
-          <include name="ringRepayment"/>
-          <include name="ringAuthApi_Positive"/>
-          <include name="ringPayLogin"/>
-          <include name="ringLogout"/>
-          <include name="ringPayAppLaunch"/>
-          <include name="ringOtpApi_Positive"/>
+          <include name="ringOtpApi_Positive" invocation-numbers="0"/>
           <include name="ringAppQuit"/>
-          <include name="ringOtpApi_Negative"/>
         </methods>
       </class> <!-- com.RingPay.TestScripts.RingPayTestScripts -->
     </classes>
