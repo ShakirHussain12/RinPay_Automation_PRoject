@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-26T10:40:03 IST" name="Android" finished-at="2022-09-26T10:45:15 IST" duration-ms="311964">
+  <suite started-at="2022-09-26T12:47:52 IST" name="Android" finished-at="2022-09-26T12:54:15 IST" duration-ms="382200">
     <groups>
     </groups>
-    <test started-at="2022-09-26T10:40:03 IST" name="RingPay" finished-at="2022-09-26T10:45:15 IST" duration-ms="311964">
+    <test started-at="2022-09-26T12:47:52 IST" name="RingPay" finished-at="2022-09-26T12:54:15 IST" duration-ms="382200">
       <class name="com.RingPay.TestScripts.RingPayTestScripts">
-        <test-method is-config="true" signature="Before()[pri:0, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:40:12 IST" name="Before" finished-at="2022-09-26T10:40:24 IST" duration-ms="12074" status="PASS">
+        <test-method is-config="true" signature="Before()[pri:0, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:48:02 IST" name="Before" finished-at="2022-09-26T12:48:16 IST" duration-ms="13524" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Before -->
-        <test-method signature="ringPayAppLaunch()[pri:0, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:40:24 IST" name="ringPayAppLaunch" finished-at="2022-09-26T10:40:34 IST" duration-ms="9901" status="PASS">
+        <test-method signature="ringPayAppLaunch()[pri:0, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:48:16 IST" name="ringPayAppLaunch" finished-at="2022-09-26T12:48:25 IST" duration-ms="9169" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringPayAppLaunch -->
-        <test-method signature="ringPayLogin(java.lang.String)[pri:1, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:40:42 IST" name="ringPayLogin" finished-at="2022-09-26T10:41:24 IST" duration-ms="42298" status="PASS">
+        <test-method signature="ringPayLogin(java.lang.String)[pri:1, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:48:35 IST" name="ringPayLogin" finished-at="2022-09-26T12:49:26 IST" duration-ms="50215" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -26,7 +26,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringPayLogin -->
-        <test-method signature="ringMerchantPay(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:41:30 IST" name="ringMerchantPay" finished-at="2022-09-26T10:42:35 IST" duration-ms="64683" status="PASS">
+        <test-method signature="ringMerchantPay(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:49:34 IST" name="ringMerchantPay" finished-at="2022-09-26T12:51:03 IST" duration-ms="88873" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -47,7 +47,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringMerchantPay -->
-        <test-method signature="ringRepayment(java.lang.String, java.lang.String)[pri:3, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:42:42 IST" name="ringRepayment" finished-at="2022-09-26T10:44:19 IST" duration-ms="96823" status="PASS">
+        <test-method signature="ringRepayment(java.lang.String, java.lang.String)[pri:3, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:51:11 IST" name="ringRepayment" finished-at="2022-09-26T12:53:28 IST" duration-ms="136788" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -63,11 +63,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringRepayment -->
-        <test-method signature="ringLogout()[pri:4, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:44:27 IST" name="ringLogout" finished-at="2022-09-26T10:44:36 IST" duration-ms="9112" status="PASS">
+        <test-method signature="ringLogout()[pri:4, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:53:34 IST" name="ringLogout" finished-at="2022-09-26T12:53:43 IST" duration-ms="9257" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringLogout -->
-        <test-method signature="ringOtpApi_Positive(java.lang.String)[pri:5, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:44:44 IST" name="ringOtpApi_Positive" finished-at="2022-09-26T10:44:45 IST" duration-ms="1254" status="PASS">
+        <test-method signature="ringOtpApi_Positive(java.lang.String)[pri:5, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:53:48 IST" name="ringOtpApi_Positive" finished-at="2022-09-26T12:53:50 IST" duration-ms="1633" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -78,7 +78,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringOtpApi_Positive -->
-        <test-method signature="ringOtpApi_Negative(java.lang.String)[pri:6, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:44:51 IST" name="ringOtpApi_Negative" finished-at="2022-09-26T10:44:52 IST" duration-ms="421" status="PASS">
+        <test-method signature="ringOtpApi_Negative(java.lang.String)[pri:6, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:53:56 IST" name="ringOtpApi_Negative" finished-at="2022-09-26T12:53:56 IST" duration-ms="751" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -89,7 +89,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringOtpApi_Negative -->
-        <test-method signature="ringAuthApi_Positive(java.lang.String)[pri:7, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:44:57 IST" name="ringAuthApi_Positive" finished-at="2022-09-26T10:44:58 IST" duration-ms="631" status="PASS">
+        <test-method signature="ringAuthApi_Positive(java.lang.String)[pri:7, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:54:02 IST" name="ringAuthApi_Positive" finished-at="2022-09-26T12:54:02 IST" duration-ms="796" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -100,7 +100,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringAuthApi_Positive -->
-        <test-method signature="ringAuthApi_Negative(java.lang.String)[pri:8, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:45:06 IST" name="ringAuthApi_Negative" finished-at="2022-09-26T10:45:07 IST" duration-ms="477" status="PASS">
+        <test-method signature="ringAuthApi_Negative(java.lang.String)[pri:8, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:54:08 IST" name="ringAuthApi_Negative" finished-at="2022-09-26T12:54:08 IST" duration-ms="561" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -111,7 +111,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringAuthApi_Negative -->
-        <test-method is-config="true" signature="ringAppQuit()[pri:0, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T10:45:14 IST" name="ringAppQuit" finished-at="2022-09-26T10:45:15 IST" duration-ms="480" status="PASS">
+        <test-method is-config="true" signature="ringAppQuit()[pri:0, instance:com.RingPay.TestScripts.RingPayTestScripts@7c56e013]" started-at="2022-09-26T12:54:14 IST" name="ringAppQuit" finished-at="2022-09-26T12:54:15 IST" duration-ms="707" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ringAppQuit -->
