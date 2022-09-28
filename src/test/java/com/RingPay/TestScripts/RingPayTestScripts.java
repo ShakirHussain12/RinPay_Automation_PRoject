@@ -13,7 +13,7 @@ import com.extent.ExtentReporter;
 import com.utility.Utilities;
 
 public class RingPayTestScripts {
-	//Hello
+	 //hello
 	private com.business.RingPay.RingPayBusinessLogic ringPayBusiness;
 	@BeforeTest
 	public void Before() throws InterruptedException {
@@ -43,12 +43,6 @@ public class RingPayTestScripts {
 		ExtentReporter.jiraID = "PP-30";
 	}
 	
-	/*@Test(priority = 3)
-	public void ringTransactionDetails() throws Exception{
-		ringPayBusiness.ringPayTransactionDetails();;
-		ExtentReporter.jiraID = "PP-50";
-	}*/
-
 	@Test(priority = 3)
 	@Parameters({"CVV","MobileNumber"})
 	public void ringRepayment(String cvv,String reLoginMobNumber) throws Exception{

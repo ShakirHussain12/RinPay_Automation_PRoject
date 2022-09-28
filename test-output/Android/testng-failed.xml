@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="1" name="Failed suite [Android]" guice-stage="DEVELOPMENT">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Android]">
   <parameter name="testExecutionKey" value="PP-27"/>
   <parameter name="AuthenticationURI" value="https://user-gateway.test.ideopay.in/api/v1/users/android/authentication"/>
   <parameter name="runModule" value="Suite"/>
@@ -20,7 +20,9 @@
       <class name="com.RingPay.TestScripts.RingPayTestScripts">
         <methods>
           <include name="Before"/>
-          <include name="ringOtpApi_Positive" invocation-numbers="0"/>
+          <include name="ringMerchantPay" invocation-numbers="0"/>
+          <include name="ringRepayment" invocation-numbers="0"/>
+          <include name="ringLogout"/>
           <include name="ringAppQuit"/>
         </methods>
       </class> <!-- com.RingPay.TestScripts.RingPayTestScripts -->
